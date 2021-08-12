@@ -2,6 +2,8 @@ import {
   LOGIN, LOGOUT, SIGNUP
 } from '../helpers/constants';
 import addUser from '../helpers/addUser';
+import authenticate from '../helpers/authenticate';
+import history from '../history';
 
 export const SignUp = (user) => {
   addUser(user);
@@ -9,6 +11,15 @@ export const SignUp = (user) => {
     type: SIGNUP,
     payload: user
   };
+};
+
+export const authenticateUser = (user, redirectUrl) => (dispatch) => {
+  if (authenticate(user)){
+    dispatch(logIn(user));
+    history.push(redirectUrl);
+  } else {
+    return false;
+  }
 };
 
 export const logIn = (user) => {
