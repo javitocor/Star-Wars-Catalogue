@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Horizon";
+  src: url("../assets/fonts/Horizon\ W03\ Rg.woff") format("woff");
+}
+
+html {
+  font-size: 100%;
+  font-family: 'Horizon', sans-serif;
+}
+
+body {
+  font-size: 100%;
+  font-family: 'Horizon', sans-serif;
+}
+
+* {
+  font-family: DIN Next W01 Regular, Helvetica, Arial, sans-serif;
+}

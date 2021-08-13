@@ -1,6 +1,7 @@
 import {
   GET_SINGLE_ITEM, GET_SINGLE_ITEM_PENDING, GET_SINGLE_ITEM_ERROR,
   GET_ALL_ITEMS, GET_ALL_ITEMS_PENDING, GET_ALL_ITEMS_ERROR,
+  UPDATE_ITEMS,
 } from '../helpers/constants';
 
 export const getAllItems = itemsList => ({
@@ -8,11 +9,16 @@ export const getAllItems = itemsList => ({
   itemsList,
 });
 
+export const updateItems = data => ({
+  type: UPDATE_ITEMS,
+  data,
+});
+
 export const getAllItemsPending = () => ({
   type: GET_ALL_ITEMS_PENDING,
 });
 
-export const getAllPlayersError = error => ({
+export const getAllItemsError = error => ({
   type: GET_ALL_ITEMS_ERROR,
   error,
 });

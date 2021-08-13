@@ -12,6 +12,7 @@ export const SIGNUP = 'SIGNUP';
 export const initialStateItems = {
   error: null,
   pending: false,
+  next: '',
   itemsList: [],
   item: {},
 };
@@ -22,4 +23,5 @@ export const GET_SINGLE_ITEM_ERROR = 'GET_SINGLE_ITEM_ERROR';
 export const GET_ALL_ITEMS = 'GET_ALL_ITEMS';
 export const GET_ALL_ITEMS_PENDING = 'GET_ALL_ITEMS_PENDING';
 export const GET_ALL_ITEMS_ERROR = 'GET_ALL_ITEMS_ERROR';
+export const UPDATE_ITEMS  = 'UPDATE_ITEMS';
 

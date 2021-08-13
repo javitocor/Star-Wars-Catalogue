@@ -2,6 +2,7 @@ import {
   initialStateItems,
   GET_SINGLE_ITEM, GET_SINGLE_ITEM_PENDING, GET_SINGLE_ITEM_ERROR,
   GET_ALL_ITEMS, GET_ALL_ITEMS_PENDING, GET_ALL_ITEMS_ERROR,
+  UPDATE_ITEMS,
 } from '../helpers/constants';
 
 const itemReducer = (state = initialStateItems, action) => {
@@ -10,7 +11,8 @@ const itemReducer = (state = initialStateItems, action) => {
       return {
         ...state,
         pending: false,
-        itemsList: action.itemsList,
+        next: action.itemsList.next,
+        itemsList: action.itemsList.results,
       };
     case GET_ALL_ITEMS_PENDING:
       return {
@@ -27,7 +29,7 @@ const itemReducer = (state = initialStateItems, action) => {
       return {
         ...state,
         pending: false,
-        item: action.player,
+        item: action.item,
       };
     case GET_SINGLE_ITEM_PENDING:
       return {
@@ -39,6 +41,12 @@ const itemReducer = (state = initialStateItems, action) => {
         ...state,
         pending: false,
         error: action.error,
+      };
+    case UPDATE_ITEMS:
+      return {
+        ...state,
+        next: action.data.next,
+        itemsList: [...state.itemsList, ...action.data.results],
       };
     default:
       return state;

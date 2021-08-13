@@ -5,13 +5,12 @@ import { connect } from "react-redux";
 const ProtectedRoute = (props) => {
   const { type, redirectPath, component, user, loggedIn, ...routeProps } = props;
   const Component = component;
-  const isAccessible = Boolean(user) && loggedIn;
 
   return (
     <Route
       {...routeProps}
       render={(props) => {
-        if (type ==='guest' && isAccessible  ) return <Component {...props} />;
+        if (loggedIn) return <Component {...props} key={Date.now()}/>;
 
         const state = { from: props.location };
         const pathname = redirectPath || "/login";

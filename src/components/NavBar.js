@@ -40,31 +40,84 @@ class NavBar extends Component {
                   LOG IN
                 </Link>
                 <Link
-                  name="registration"
-                  to="/registration"
+                  name="signup"
+                  to="/signup"
                   className="list-group-item list-group-item-action active list-group-item-success"
                   id="list-home-list"
                   data-toggle="list"
                   role="tab"
                   aria-controls="home"
                 >
-                  Sign
+                  SIGN UP
                 </Link>
               </div>
             )}
             {loggedIn && (
-              <Link
-              name="logout"
-              onClick={this.handleLogoutClick}
-              to="/login"
-              className="list-group-item list-group-item-action active list-group-item-success"
-              id="list-home-list"
-              data-toggle="list"
-              role="tab"
-              aria-controls="home"
-            >
-              LOG OUT
-            </Link>
+              <div>
+                <Link
+                key="Vessels"
+                name="Vessels"
+                to={{
+                  pathname: "/swinfo/vessel",
+                  state: {
+                    resources: 'starships',
+                  },
+                }}
+                className="list-group-item list-group-item-action active list-group-item-success"
+                id="list-home-list"
+                data-toggle="list"
+                role="tab"
+                aria-controls="home"
+                >
+                Vessels
+                </Link>
+                <Link
+                key="Planets"
+                name="Planets"
+                to={{
+                  pathname: "/swinfo/planets",
+                  state: {
+                    resources: 'planets',
+                  },
+                }}
+                className="list-group-item list-group-item-action active list-group-item-success"
+                id="list-home-list"
+                data-toggle="list"
+                role="tab"
+                aria-controls="home"
+                >
+                Planets
+                </Link>
+                <Link
+                key="films"
+                name="films"
+                to={{
+                  pathname: "/swinfo/films",
+                  state: {
+                    resources: 'films',
+                  },
+                }}
+                className="list-group-item list-group-item-action active list-group-item-success"
+                id="list-home-list"
+                data-toggle="list"
+                role="tab"
+                aria-controls="home"
+                >
+                Films
+                </Link>
+                <Link
+                name="logout"
+                onClick={this.handleLogoutClick}
+                to="/login"
+                className="list-group-item list-group-item-action active list-group-item-success"
+                id="list-home-list"
+                data-toggle="list"
+                role="tab"
+                aria-controls="home"
+                >
+                LOG OUT
+                </Link>
+              </div>
             )}
           </div>
         </div>
