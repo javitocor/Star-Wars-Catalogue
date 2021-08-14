@@ -51,14 +51,14 @@ Additional description about the project and its features.
 
 ### Usage
 To have this app on your pc, you need to:
-* [download](https://github.com/javitocor/Trekkie-World-Catalog/archive/development.zip) or clone this repo:
+* [download](https://github.com/javitocor/Star-Wars-Catalog/archive/development.zip) or clone this repo:
   - Clone with SSH:
   ```
-    git@github.com:javitocor/Trekkie-World-Catalog.git
+    git@github.com:javitocor/Star-Wars-Catalog.git
   ```
   - Clone with HTTPS
   ```
-    https://github.com/javitocor/Trekkie-World-Catalog.git
+    https://github.com/javitocor/Star-Wars-Catalog.git
   ```
 
 * In the project directory, you can run:
@@ -99,7 +99,7 @@ To have this app on your pc, you need to:
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/javitocor/Trekkie-World-Catalog/issues).
+Feel free to check the [issues page](https://github.com/javitocor/Star-Wars-Catalog/issues).
 
 ## Show your support
 
@@ -117,11 +117,11 @@ This project is [MIT](lic.url) licensed.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/javitocor/Trekkie-World-Catalog.svg?style=flat-square
-[contributors-url]: https://github.com/javitocor/Trekkie-World-Catalog/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/javitocor/Trekkie-World-Catalog.svg?style=flat-square
-[forks-url]: https://github.com/javitocor/Trekkie-World-Catalog/network/members
-[stars-shield]: https://img.shields.io/github/stars/javitocor/Trekkie-World-Catalog.svg?style=flat-square
-[stars-url]: https://github.com/javitocor/Trekkie-World-Catalog/stargazers
-[issues-shield]: https://img.shields.io/github/issues/javitocor/Trekkie-World-Catalog.svg?style=flat-square
-[issues-url]: https://github.com/javitocor/Trekkie-World-Catalog/issues
+[contributors-shield]: https://img.shields.io/github/contributors/javitocor/Star-Wars-Catalog.svg?style=flat-square
+[contributors-url]: https://github.com/javitocor/Star-Wars-Catalog/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/javitocor/Star-Wars-Catalog.svg?style=flat-square
+[forks-url]: https://github.com/javitocor/Star-Wars-Catalog/network/members
+[stars-shield]: https://img.shields.io/github/stars/javitocor/Star-Wars-Catalog.svg?style=flat-square
+[stars-url]: https://github.com/javitocor/Star-Wars-Catalog/stargazers
+[issues-shield]: https://img.shields.io/github/issues/javitocor/Star-Wars-Catalog.svg?style=flat-square
+[issues-url]: https://github.com/javitocor/Star-Wars-Catalog/issues
