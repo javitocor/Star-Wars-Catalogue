@@ -63,7 +63,7 @@ To have this app on your pc, you need to:
 
 * In the project directory, you can run:
 
-  - `$ npm install` - installs all the dependencies required by the project
+  - `$ npm install` or `$ yarn install` - installs all the dependencies required by the project
 
   - `$ npm start` - runs the app in the development mode:
     - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
