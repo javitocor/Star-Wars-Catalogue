@@ -87,6 +87,7 @@ To have this app on your pc, you need to:
 
 ## Future Features
 - Add images.
+- Add testing.
 
 ## Author
 
