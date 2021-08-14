@@ -47,7 +47,6 @@ Additional description about the project and its features.
 - VSCODE
 
 ## Getting Started
-- Follow the live demo link and enjoy the site.
 
 ### Usage
 To have this app on your pc, you need to:
