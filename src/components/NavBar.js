@@ -54,7 +54,7 @@ class NavBar extends Component {
                       LOG IN
                     </Link> 
                   </li>
-                  <li>//</li>
+                  <li className="mx-2">///</li>
                   <li><Link
                       name="signup"
                       to="/signup"

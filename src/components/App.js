@@ -14,7 +14,7 @@ const App = () => (
     <Switch>
       <>
         <div className="">
-          <div className="row d-sm-flex flex-sm-row d-md-flex flex-md-row">
+          <div className="">
             <Route path="/" component={NavBar} />
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} type="guest" />

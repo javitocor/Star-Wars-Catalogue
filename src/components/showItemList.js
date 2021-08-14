@@ -4,26 +4,27 @@ import { Link } from 'react-router-dom';
 import style from '../style/ItemCard.module.css';
 
 const ShowItemList = props => {
-  const { value, object, resource } = props;
+  const { value, object } = props;
   const data = object[value];
   return (
     <div className="list-group-item list-group-item-action flex-column align-items-start bg-light">
       <div className="d-flex w-100 justify-content-between">
         <h5 className="mb-1 text-white">{value.toUpperCase()}</h5>
       </div>
-      <ul>
-        {data.length === 0 ? <li>No Data</li> : data.map( item => (
+      <ul className="text-decoration-none">
+        {data.length === 0 ? <li className="text-white text-decoration-none">No Data</li> : data.map( (item, index) => (
           <li className={style.link}>
             <Link
               name="name"
+              key={index+2530}
               to={{
-                pathname: item.name ? `/swinfo/${resource}/${item.name}`:`/swinfo/${resource}/${item.title}`,
+                pathname: item.name ? `/swinfo/${value}/${item.name}`:`/swinfo/${value}/${item.title}`,
                 state: {
                   link: item.url,
-                  resource: resource,
+                  resource: value,
                 },
               }}
-              className="btn d-block w-100 d-sm-inline-block btn-secondary"
+              className="btn d-block mb-2 d-sm-inline-block btn-secondary text-white"
               id="list-home-list"
               data-toggle="list"
               role="tab"

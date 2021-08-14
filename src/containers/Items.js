@@ -10,26 +10,43 @@ import ItemsShow from '../components/ItemsShow';
 class Items extends React.Component {
   constructor(props) {
     super(props);
+    this.state= {
+      itemsList: this.props.items.itemsList,
+    }
     this.handleClick = this.handleClick.bind(this);
   }
-  componentDidMount() {
+  async componentDidMount() {
     const { getAllItems } = this.props;
     const { location } = this.props;
     const { resources } = location.state;
-    getAllItems(resources, null, null);
+    try {
+      await getAllItems(resources, null, null);
+    } catch (error) {
+      console.log(error)
+    }        
   }
-  handleClick() {
+  componentDidUpdate(prevProps){
+    if(prevProps.items.itemsList !== this.props.items.itemsList){
+      this.setState({itemsList: this.props.items.itemsList});
+    }
+  }
+
+  async handleClick() {
     const next_page = this.props.items.next;
-    this.props.getAllItems(null, next_page, 'update');
+    try {
+      await this.props.getAllItems(null, next_page, 'update');
+    } catch (error) {
+      console.log(error)
+    }        
   }
 
   render() {
     const { items } = this.props;
-    const { itemsList, next } = items;
+    const { next, itemsList } = items;
     const display = displayItems(this.props.location.state.resources)
     let more_button;
     if (next !== null) {
-      more_button = <button type="button" className="btn d-block d-sm-inline-block btn-secondary" onClick={this.handleClick} />;
+      more_button = <div className="btn d-block d-sm-inline-block btn-secondary mb-3" onClick={this.handleClick}> SHOW MORE </div>;
     } else {
       more_button = <span></span>;
     }
@@ -48,14 +65,14 @@ class Items extends React.Component {
                 <div className="mb-60">
                   <div className="">
                     <p className={style.show}>Total Items Shown: {itemsList.length}</p>
-                    {itemsList.map(item => (
-                      <ItemsShow key={Date.now()} info={item} display={display} resource={this.props.location.state.resources}/>
+                    {itemsList.map((item, index) => (
+                      <ItemsShow key={index} info={item} display={display} resource={this.props.location.state.resources}/>
                     ))};
                   </div>
                 </div>
               </div>
             </div>
-            <div className="text-center w-100 mt-3">{more_button}</div>
+            <div className="text-center w-100 mt-3 mb-3">{more_button}</div>
           </div>
         </main>
     );

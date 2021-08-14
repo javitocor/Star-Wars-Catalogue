@@ -6,9 +6,9 @@ class Home extends Component {
   render() {
     const { loggedIn, user } = this.props.auth;
     return (
-      <main>
+      <main className="pt-5">
         <div className={home.main}>
-          <div className="jumbotron pt-4 bg-light">
+          <div className="jumbotron pt-5 mb-0 bg-light">
             <h1 className="display-4 text-white">Hello, STAR WARS lovers!</h1>
             <p className="lead text-white">Welcome to the most extensive website related to Star Wars. All the information you need you'll find it here</p>
             <hr className="my-4" />
@@ -22,7 +22,7 @@ class Home extends Component {
 
               {loggedIn && (
                 <p className="lead text-white">
-                  Welcome <strong>{user.username}</strong>
+                  Welcome <strong>{user.username}!</strong>
                 </p>
               )}
             </div>

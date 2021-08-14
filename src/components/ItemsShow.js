@@ -7,15 +7,16 @@ const ItemsShow = props => {
   const { info, display, resource } = props;
   return (
     <div className="d-md-flex align-items-center justify-content-between mb-3 bg-secondary p-3 bg-light">
-      <div className="my-4 d-md-flex align-items-center flex-wrap">
+      <div className="jedi my-4 d-md-flex align-items-center flex-wrap">
         <div className={style.content}>                      
           <div>
-            <h5 className="text-center text-md-left text-white">{info[display[0]]} </h5> 
-            <p className="text-center text-md-left text-white">{display[1]}: {info[display[1]]}</p>
+            <h5 className=" text-md-left text-white">{info[display[0]]} </h5> 
+            <p className=" text-md-left text-white">{display[1]}: {info[display[1]]}</p>
           </div>                                           
         </div>
       </div>
-      <div className="my-4 flex-shrink-0">
+      <div className="jedi"><i className="fas fa-jedi"></i></div>
+      <div className="my-4 flex-shrink-0 darth">
         <Link
           key="itemCard"
           name="itemCard"

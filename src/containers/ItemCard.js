@@ -8,7 +8,7 @@ import itemChecker from '../helpers/itemChecker';
 import checkKey from '../helpers/checkKey';
 import ShowItemList from '../components/ShowItemList';
 import ShowItem from '../components/ShowItem';
-import style from'../style/ItemCard.module.css'
+import card from '../style/ItemCard.module.css'
 
 class ItemCard extends React.Component {
   constructor (props) {
@@ -45,7 +45,7 @@ class ItemCard extends React.Component {
           <div className="row">
             <div className="col-lg-10 mx-auto mb-4">
               <div className="text-center">
-                  <h2 className="title">{resource === 'films' ? item.title : item.name}</h2>
+                  <h2 className={card.title}>{resource === 'films' ? item.title : item.name}</h2>
               </div>
             </div>
           </div>
@@ -53,12 +53,12 @@ class ItemCard extends React.Component {
             <div className="col-lg-10 mx-auto mb-4">
               <div className="mb-60">
                 <div className="">
-                  <p className="show">Total Attributes Shown: {this.state.keys.length}</p>
+                  <p className={card.show}>Total Attributes Shown: {this.state.keys.length}</p>
                   <div className="list-group">
                   {this.state.keys.map(value => (
                     <div>
                     {checkKey(value, this.state.filteredItem[1]) 
-                      ? <ShowItemList key={Date.now()} value={value} object={this.state.filteredItem[0]} resource={resource}/> 
+                      ? <ShowItemList key={Date.now()} value={value} object={this.state.filteredItem[0]}/> 
                       : <ShowItem key={value} item={item} value={value}/>
                     } 
                     </div>                   
