@@ -16,7 +16,7 @@ class Items extends React.Component {
     const { getAllItems } = this.props;
     const { location } = this.props;
     const { resources } = location.state;
-    getAllItems(resources, null);
+    getAllItems(resources, null, null);
   }
   handleClick() {
     const next_page = this.props.items.next;

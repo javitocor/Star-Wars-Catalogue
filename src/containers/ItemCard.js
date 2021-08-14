@@ -6,8 +6,8 @@ import callApi from '../helpers/APIcalls';
 import displayItem from '../helpers/displayItem';
 import itemChecker from '../helpers/itemChecker';
 import checkKey from '../helpers/checkKey';
-import showItemList from '../components/showItemList';
-import showItem from '../components/showItem';
+import ShowItemList from '../components/ShowItemList';
+import ShowItem from '../components/ShowItem';
 import style from'../style/ItemCard.module.css'
 
 class ItemCard extends React.Component {
@@ -26,6 +26,7 @@ class ItemCard extends React.Component {
       const data = await getSingleItem(null, link, null);        
       const keys = displayItem(data);
       const filteredItem = await itemChecker(data, keys);
+      console.log(filteredItem[0])
       this.setState({ keys: keys, filteredItem: filteredItem });
     } catch (error) {
       console.log(error)
@@ -38,7 +39,7 @@ class ItemCard extends React.Component {
     const { item } = items;
     const {resource} = this.props.location.state;
     console.log(this.state.filteredItem);
-    return (      
+    return Object.keys(item).length === 0 ? <div className="d-flex justify-content-center align-items-center pt-5 w-100">Loading...</div> : (      
       <main>
         <div className="container pt-5">
           <div className="row">
@@ -57,8 +58,8 @@ class ItemCard extends React.Component {
                   {this.state.keys.map(value => (
                     <div>
                     {checkKey(value, this.state.filteredItem[1]) 
-                      ? <showItemList key={Date.now()} value={value} object={this.state.filteredItem[0]} resource={resource}/> 
-                      : <showItem key={value} item={item} value={value}/>
+                      ? <ShowItemList key={Date.now()} value={value} object={this.state.filteredItem[0]} resource={resource}/> 
+                      : <ShowItem key={value} item={item} value={value}/>
                     } 
                     </div>                   
                     ))}

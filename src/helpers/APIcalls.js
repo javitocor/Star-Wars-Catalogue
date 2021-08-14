@@ -6,7 +6,7 @@ import {
   updateItems
 } from '../actions/items';
 
-const callApi = (resource = null, link= null, update=null, search=null) => async dispatch => {
+const callApi = (resource = null, link= null, update=null) => async dispatch => {
   let Url = '';
 
   if (resource !== null) {
@@ -28,10 +28,10 @@ const callApi = (resource = null, link= null, update=null, search=null) => async
       dispatch(getAllItems(data));
     } else if (update !== null && link !== null) {
       dispatch(updateItems(data));
-    } else if (link !== null && search === null) {
+    } else {
       dispatch(getSingleItem(data));
     }
-    return data;
+    return data;   
   } catch (error) {
     if (resource !== null) { 
       dispatch(getAllItemsError(error));
