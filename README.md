@@ -19,9 +19,9 @@
 [![Issues][issues-shield]][issues-url] 
 ![Hireable](https://cdn.rawgit.com/hiendv/hireable/master/styles/default/yes.svg) 
 
-# Star Wars Catalog
+# Star Wars Catalogue
 
->  A catalog where users will find everything related to Star Wars, built with React&Redux.
+>  A catalogue where users will find everything related to Star Wars, built with React&Redux.
 
 
 Landing Page:
