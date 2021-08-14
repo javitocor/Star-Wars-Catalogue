@@ -4,15 +4,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import callApi  from '../helpers/APIcalls';
 import displayItems from '../helpers/displayItems';
-import { Link } from "react-router-dom";
+import style from '../style/Items.module.css';
+import ItemsShow from '../components/ItemsShow';
 
 class Items extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      type:this.props.match.params.id,
-      resources: "",
-    }
     this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
@@ -27,45 +24,40 @@ class Items extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { items } = this.props;
     const { itemsList, next } = items;
     const display = displayItems(this.props.location.state.resources)
     let more_button;
     if (next !== null) {
-      more_button = <button onClick={this.handleClick} />;
+      more_button = <button type="button" className="btn d-block d-sm-inline-block btn-secondary" onClick={this.handleClick} />;
     } else {
       more_button = <span></span>;
     }
-    return itemsList.length === 0 ? <div className="d-flex justify-content-center align-items-center w-100">Loading...</div> : (
-        <div>
-          <div className="jumbotron bg-success p-4 mt-2">
-            {itemsList.map(item => (
-              <div>
-                <p key={item.url}>{item[display[0]]}: {item[display[1]]}</p>
-                <Link
-                  key="itemCard"
-                  name="itemCard"
-                  to={{
-                    pathname: `/swinfo/${this.props.location.state.resources}/${item[display[0]]}`,
-                    state: {
-                      link: item.url,
-                      resource: this.props.location.state.resources,
-                    },
-                  }}
-                  className="list-group-item list-group-item-action active list-group-item-success"
-                  id="list-home-list"
-                  data-toggle="list"
-                  role="tab"
-                  aria-controls="home"
-                  >
-                  More
-                </Link>
+    return itemsList.length === 0 ? <div className="d-flex justify-content-center align-items-center pt-5 w-100">Loading...</div> : (
+        <main>
+          <div className="container pt-5">
+            <div className="row">
+              <div className="col-lg-10 mx-auto mb-4">
+                <div className="text-center">
+                    <h2 className={style.title}>{this.props.location.state.resources.toUpperCase()}</h2>
+                </div>
               </div>
-            ))};
+            </div>
+            <div className="row">
+              <div className="col-lg-10 mx-auto">
+                <div className="mb-60">
+                  <div className="">
+                    <p className={style.show}>Total Items Shown: {itemsList.length}</p>
+                    {itemsList.map(item => (
+                      <ItemsShow key={Date.now()} info={item} display={display} resource={this.props.location.state.resources}/>
+                    ))};
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="text-center w-100 mt-3">{more_button}</div>
           </div>
-          <div>{more_button}</div>
-        </div>
+        </main>
     );
   }
 }

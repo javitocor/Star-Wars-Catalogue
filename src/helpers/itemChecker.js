@@ -32,7 +32,7 @@ async function itemChecker (item, keys) {
         finalObj[objectKeys[index]] = [tempObj];
       };
       
-      return [finalObj, objectKeys];
+      return ['aaa', 'aaaa'];
     }
   }
 }

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Grid, Button, Form } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import { SignUp } from "../actions/authorization";
 import { withRouter } from "react-router-dom";
+import login from '../style/Login.module.css';
 
 class Signup extends Component {
   state = {
@@ -30,36 +30,20 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Signup</h1>
-        <Grid columns={3}>
-          <Grid.Row>
-            <Grid.Column>
-              <Form onSubmit={this.handleSubmit}>
-                <Form.Input
-                  label="Username"
-                  name="username"
-                  value={this.state.account.username}
-                  onChange={this.handleChange}
-                />
-
-                <Form.Input
-                  label="Password"
-                  type="password"
-                  name="password"
-                  value={this.state.account.password}
-                  onChange={this.handleChange}
-                />
-
-                <Button type="submit" primary>
-                  Signup
-                </Button>
-              </Form>
-            </Grid.Column>
-            <Grid.Column />
-          </Grid.Row>
-        </Grid>
-      </div>
+      <main>
+        <div className={login.formdiv}>
+          <form className={login.formsignin} onSubmit={this.handleSubmit}>
+            <i className="fas fa-jedi mb-4"></i>
+            <h1 className="h3 mb-3 font-weight-normal text-secondary">Please sign up</h1>
+            <label className="sr-only">Username</label>
+            <input type="text" className="form-control mb-2" name="username" placeholder="Username" required=""  value={this.state.account.username} onChange={this.handleChange}/>
+            <label className="sr-only">Password</label>
+            <input type="password" className="form-control mb-3" name="password" placeholder="Password" required="" value={this.state.account.password} onChange={this.handleChange}/>
+            <button className="btn btn-lg btn-secondary btn-block mt-3" type="submit">Sign in</button>
+            <p className="mt-5 mb-3 text-muted">STAR WARS © 2021</p>
+          </form>
+        </div>
+      </main>
     );
   }
 }

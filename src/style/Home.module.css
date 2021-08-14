@@ -1,0 +1,7 @@
+.main{
+  width: 50%;
+  margin: 0 auto;
+  padding: 15px;
+  background: rgb(49,52,52) !important;
+  background: radial-gradient(circle, rgba(49,52,52,1) 40%, rgba(3,0,0,1) 91%) !important;
+}

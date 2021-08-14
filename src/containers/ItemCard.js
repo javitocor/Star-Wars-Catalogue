@@ -5,13 +5,31 @@ import { bindActionCreators } from 'redux';
 import callApi from '../helpers/APIcalls';
 import displayItem from '../helpers/displayItem';
 import itemChecker from '../helpers/itemChecker';
+import checkKey from '../helpers/checkKey';
+import showItemList from '../components/showItemList';
+import showItem from '../components/showItem';
+import style from'../style/ItemCard.module.css'
 
 class ItemCard extends React.Component {
-  componentDidMount() {
+  constructor (props) {
+    super(props);
+    this.state = {
+      keys: [],
+      filteredItem: null,
+    };
+  }
+  async componentDidMount() {
     const { getSingleItem } = this.props;
     const { location } = this.props;
     const { link } = location.state;
-    getSingleItem(null, link, null);
+    try{
+      const data = await getSingleItem(null, link, null);        
+      const keys = displayItem(data);
+      const filteredItem = await itemChecker(data, keys);
+      this.setState({ keys: keys, filteredItem: filteredItem });
+    } catch (error) {
+      console.log(error)
+    }    
   }
   
 
@@ -19,14 +37,38 @@ class ItemCard extends React.Component {
     const { items } = this.props;
     const { item } = items;
     const {resource} = this.props.location.state;
-    const keys = displayItem(item);
-    const filteredItem = itemChecker(item, keys);
+    console.log(this.state.filteredItem);
     return (      
-        <div className="jumbotron bg-success p-4 mt-2">
-          {keys.map(key => (
-            <p key={key}>{key} : {item[key]}</p>
-          ))}
+      <main>
+        <div className="container pt-5">
+          <div className="row">
+            <div className="col-lg-10 mx-auto mb-4">
+              <div className="text-center">
+                  <h2 className="title">{resource === 'films' ? item.title : item.name}</h2>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-10 mx-auto mb-4">
+              <div className="mb-60">
+                <div className="">
+                  <p className="show">Total Attributes Shown: {this.state.keys.length}</p>
+                  <div className="list-group">
+                  {this.state.keys.map(value => (
+                    <div>
+                    {checkKey(value, this.state.filteredItem[1]) 
+                      ? <showItemList key={Date.now()} value={value} object={this.state.filteredItem[0]} resource={resource}/> 
+                      : <showItem key={value} item={item} value={value}/>
+                    } 
+                    </div>                   
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </main>
     );
   }
 }
@@ -53,3 +95,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemCard);
+

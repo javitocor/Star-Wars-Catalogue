@@ -1,0 +1,17 @@
+.formdiv {
+  padding-top: 55px;
+  padding-bottom: 20px;
+  text-align: center!important;
+}
+
+.formsignin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.fa-jedi {
+  font-size: 85px;
+  color: grey;
+}

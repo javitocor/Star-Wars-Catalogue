@@ -1,18 +1,29 @@
-@font-face {
-  font-family: "Horizon";
-  src: url("../assets/fonts/Horizon\ W03\ Rg.woff") format("woff");
-}
-
-html {
-  font-size: 100%;
-  font-family: 'Horizon', sans-serif;
-}
-
-body {
-  font-size: 100%;
-  font-family: 'Horizon', sans-serif;
-}
 
 * {
   font-family: DIN Next W01 Regular, Helvetica, Arial, sans-serif;
+}
+html, body {
+  height:100%;
+} 
+
+main {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  background-image: url(https://lumiere-a.akamaihd.net/v1/images/background-stars-desktop_00cbf8a9.jpeg?region=0%2C0%2C2048%2C1600);
+  background-size: auto 100%;
+  background-repeat: repeat;
+  background-position-x: 50% center;
+  background-position-y: 173px top;
+}
+
+.bg-light {
+  background: rgb(49,52,52) !important;
+  background: radial-gradient(circle, rgba(49,52,52,1) 40%, rgba(3,0,0,1) 91%) !important;
+}
+
+
+.fa-jedi {
+  font-size: 85px;
+  color: grey;
 }
