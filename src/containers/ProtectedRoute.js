@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 const ProtectedRoute = (props) => {
-  const { type, redirectPath, component, user, loggedIn, ...routeProps } = props;
+  const { redirectPath, component, loggedIn, ...routeProps } = props;
   const Component = component;
 
   return (
