@@ -3,7 +3,7 @@ import searchApi from './searchAPI';
 const valueCheck =(item, keys)=>{
   var tmp = [];
   for(var k in keys) {
-    if(typeof(item[keys[k]]) === 'object') {
+    if(typeof(item[keys[k]]) === 'object' || keys[k] === 'homeworld') {
       tmp.push(keys[k]);
     }
   }
@@ -28,15 +28,20 @@ async function itemChecker (item, keys) {
 const infoChecker = async (item, key) => {
   let arrayInfo = item[key];
   let tempArray = [];
-  if (arrayInfo.length === 0) return false
-  for (const link of arrayInfo){
-    let response = await searchApi(link);
-    if(key==='films'){
-      tempArray.push({title:response.title, url:response.url});
-    } else {
-      tempArray.push({name:response.name, url:response.url});
-    };
-  }
+  if(typeof(arrayInfo) === 'string' ) {
+    let homeworld = await searchApi(arrayInfo)
+    tempArray.push({name:homeworld.name, url:homeworld.url});
+  } else {
+    if (arrayInfo.length === 0) return false
+    for (const link of arrayInfo){
+      let response = await searchApi(link);
+      if(key==='films'){
+        tempArray.push({title:response.title, url:response.url});
+      } else {
+        tempArray.push({name:response.name, url:response.url});
+      };
+    }
+  }  
   return tempArray
 }
 
