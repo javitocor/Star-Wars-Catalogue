@@ -16,11 +16,13 @@ class Login extends Component {
 
   handleSubmit = () => {
     const { state } = this.props.location;
-    const redirectUrl = "/";
+    const redirectUrl = state ? state.from.pathname : "/";
     const auth = this.props.authenticateUser(this.state.account, redirectUrl);
-    if (auth !== false){
-      this.props.history.push(redirectUrl)
-    }    
+    if (auth !== false && redirectUrl !== '/'){
+      this.props.history.push({ pathname:redirectUrl, state:{resources: state.from.state.resources}});
+    } else if (auth !== false){
+      this.props.history.push(redirectUrl);
+    }
     this.setState({
       account: {
         username: "",

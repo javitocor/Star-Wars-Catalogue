@@ -16,7 +16,6 @@ export const SignUp = (user) => {
 export const authenticateUser = (user, redirectUrl) => (dispatch) => {
   if (authenticate(user)){
     dispatch(logIn(user));
-    history.push(redirectUrl);
   } else {
     return false;
   }

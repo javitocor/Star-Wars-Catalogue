@@ -8,6 +8,7 @@ class NavBar extends Component {
 
   handleLogoutClick = () => {
     this.props.logOut();
+    this.props.history.push("/");
   };
 
   render() {
@@ -74,7 +75,7 @@ class NavBar extends Component {
                     <Link
                       name="logout"
                       onClick={this.handleLogoutClick}
-                      to="/login"
+                      to="/"
                       id="list-home-list"
                       data-toggle="list"
                       role="tab"
