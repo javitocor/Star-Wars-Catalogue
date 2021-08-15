@@ -40,9 +40,6 @@ Additional description about the project and its features.
 - NPM
 - REACT
 - REDUX
-- HEROKU
-- ESLINT
-- STYLELINT
 - GITHUB ACTIONS
 - VSCODE
 
