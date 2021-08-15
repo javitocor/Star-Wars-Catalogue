@@ -21,7 +21,7 @@
 
 # Star Wars Catalogue
 
->  A catalogue where users will find everything related to Star Wars, built with React&Redux.
+>  A catalogue where users will find everything related to Star Wars, user must be logged in to access the data. Built with React&Redux.
 
 
 Landing Page:
