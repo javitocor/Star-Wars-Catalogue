@@ -26,7 +26,6 @@ class ItemCard extends React.Component {
       const data = await getSingleItem(null, link, null);        
       const keys = displayItem(data);
       const filteredItem = await itemChecker(data, keys);
-      console.log(filteredItem[0])
       this.setState({ keys: keys, filteredItem: filteredItem });
     } catch (error) {
       console.log(error)
@@ -38,7 +37,6 @@ class ItemCard extends React.Component {
     const { items } = this.props;
     const { item } = items;
     const {resource} = this.props.location.state;
-    console.log(this.state.filteredItem);
     return Object.keys(item).length === 0 ? <div className="d-flex justify-content-center align-items-center pt-5 w-100">Loading...</div> : (      
       <main>
         <div className="container pt-5">

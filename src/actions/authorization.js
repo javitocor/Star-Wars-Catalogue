@@ -3,7 +3,6 @@ import {
 } from '../helpers/constants';
 import addUser from '../helpers/addUser';
 import authenticate from '../helpers/authenticate';
-import history from '../history';
 
 export const SignUp = (user) => {
   addUser(user);
