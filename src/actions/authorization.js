@@ -12,7 +12,7 @@ export const SignUp = (user) => {
   };
 };
 
-export const authenticateUser = (user, redirectUrl) => (dispatch) => {
+export const authenticateUser = (user) => (dispatch) => {
   if (authenticate(user)){
     dispatch(logIn(user));
   } else {
